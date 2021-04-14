@@ -4,10 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Anagramma {
+	private String parola;
+	private List<String> risultato;
 	
-	public List<String>  anagrammi(String parola) {
+	
+	public Anagramma(String parola) {
+		this.parola = parola;
+		this.risultato = anagrammi();
+	}
+
+	private List<String>  anagrammi() {
 		
-		List<String> risultato = new ArrayList<>() ;
+		risultato = new ArrayList<>() ;
 			permuta("", parola, 0, risultato) ; 
 			return risultato;
 		}
@@ -29,6 +37,14 @@ public class Anagramma {
 				
 			}
 		}
+	}
+
+	public String getParola() {
+		return parola;
+	}
+
+	public List<String> getRisultato() {
+		return risultato;
 	}
 
 }

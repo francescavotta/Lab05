@@ -41,6 +41,10 @@ public class FXMLController {
     	String parola = txtParola.getText();
     	
     	parola = parola.toLowerCase().replaceAll("[.?,\\/#!$%\\^&\\*;:{}=\\-_()']","");
+    	if(parola.length()>7) {
+    		txtAnagrammiCorretti.setText("Inserire parole con meno di 8 caratteri!");
+    		return;
+    	}
     	model.controlla(parola);
     	txtAnagrammiCorretti.setText(model.stampaCorretto(model.getC()));
     	txtAnagrammiErrati.setText(model.stampaCorretto(model.getE()));

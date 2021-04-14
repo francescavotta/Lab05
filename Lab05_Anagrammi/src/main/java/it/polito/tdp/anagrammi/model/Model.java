@@ -12,14 +12,14 @@ private Set<String> e;
 private Set<String> c;
 
 public Model() {
-	this.a = new Anagramma();
 	aDao = new AnagrammaDAO();
 }
 
 public void controlla(String parola){
 	c = new HashSet<String>();
 	e = new HashSet<String>();
-	for(String s: a.anagrammi(parola)) {
+	a = new Anagramma(parola);
+	for(String s: a.getRisultato()) {
 		if(aDao.isCorrect(s))
 			c.add(s);
 		else
